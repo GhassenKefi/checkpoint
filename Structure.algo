@@ -4,27 +4,35 @@ VAR
     arr2 : ARRAY_OF INTEGER[2, 4, 1, 9, 3];
     sum : INTEGER :=0;
     i:INTEGER;
+    exist:BOOLEAN=False;
 
 BEGIN
 
 // add distinct numbers from first set to SUM
     FOR i FROM 0 TO arr1.lengh-1 STEP 1  DO
         FOR j FROM 0 TO arr2.lengh-1 STEP 1  DO
-            IF (arr1[i]<>arr2[j]) THEN
-                sum:= sum+arr1{i}
+            IF (arr1[i]=arr2[j]) THEN
+            exist=True
             END_IF       
         END_FOR
+        IF (exist= false) THEN
+            sum:= sum+arr1{i}
+            exist=False
+        END_IF                        
     END_FOR
 
 // add distinct numbers from second set to SUM
     FOR i FROM 0 TO arr2.lengh-1 STEP 1  DO
         FOR j FROM 0 TO arr1.lengh-1 STEP 1  DO
-            IF (arr2[i]<>arr1[j]) THEN
-                sum:= sum+arr2{i}
+            IF (arr2[i]=arr1[j]) THEN
+                exist=True
             END_IF       
         END_FOR
+        IF (exist= false) THEN
+            sum:= sum+arr2{i}
+            exist=False
+        END_IF     
     END_FOR
-    
 END
 
 
