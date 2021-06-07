@@ -1,0 +1,22 @@
+ALGORITHM CheckPoint
+VAR
+    A : ARRAY_OF STRING[1...n];
+    St_Length: INTEGER;
+    Word_nb:INTEGER
+    Vowel_nb:INTEGER
+BEGIN
+    St_Length:=0
+    Word_nb:=1
+    Vowel_nb:=0
+    Write("enter your sentence and please put a '.' at the end")
+    Read(A)
+    WHILE (A[St_Length]<>NULL) DO
+        St_Length:=St_Length+1
+        IF (A[St_Length]=" ") THEN
+            Word_nb:=Word_nb+1
+        END_IF
+        IF ((A[St_Length]="a")OR(A[St_Length]="e")OR(A[St_Length]="i")OR(A[St_Length]="o")OR(A[St_Length]="u")) THEN
+            Vowel_nb:=Vowel_nb+1
+        END_IF
+    END_WHILE
+END
