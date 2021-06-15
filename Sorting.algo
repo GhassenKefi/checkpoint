@@ -1,0 +1,22 @@
+ALGORITHM Selection_Sort
+VAR
+    i:INTEGER
+    j:INTEGER
+    min_indx:INTEGER
+    arr : ARRAY_OF INTEGER[];
+    temp:INTEGER
+BEGIN
+    FOR i FROM 0 TO arr.length STEP 1  DO
+        min_indx=i 
+        FOR j FROM i+1 TO arr.length STEP 1  DO
+            IF (arr[j]<arr[min_indx]) THEN
+                min_indx=j
+            END_IF
+        END_FOR
+        IF (i!=min_indx) THEN        
+            temp=arr[i]
+            arr[i]=arr[min_indx]
+            arr[min_indx]=temp
+        END_IF
+    END_FOR
+END
